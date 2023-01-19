@@ -1,1 +1,67 @@
-<p>landing-page-presentation works!</p>
+<div class="h-100 overflow-hidden">
+    <section class="container d-flex justify-content-between align-items-center">
+        <div>
+            <h1 style="font-size: 4rem;" class="fw-bolder"> More than just shorter links </h1>
+            <div class="sub-title pb-5"> Build your brand's recongnition and get details insights on how your links are
+                performing </div>
+            <button class="btn btn-primary rounded-pill text-white"> Get Started </button>
+        </div>
+        <img src="../../../../assets/images/illustration-working.svg" style="transform: translateX(300px);"
+            alt="worker">
+    </section>
+    <div class="statistic-container position-relative">
+        <form
+            class="link-form d-flex align-items-center flex-column flex-lg-row p-md-5 p-3 position-absolute rounded-3"
+            [formGroup]="linkGroup" (ngSubmit)="onSubmit()">
+            <input type="text" class="form-control w-100" name="shorten" id="shorten" formControlName="shorten"
+                placeholder="Shorten a link here..."
+                [ngClass]="{'border-danger border-3' : getControls['shorten'].invalid && getControls['shorten'].dirty}"
+                autocomplete="off">
+            <span class="text-danger invalid-text position-absolute"
+                *ngIf="getControls['shorten']?.errors?.['required'] && getControls['shorten'].touched"> Please add a
+                Link </span>
+            <button class="btn btn-primary text-nowrap text-white input-btn m-3" type="submit"> Shorten It! </button>
+            <button class="btn btn-danger text-nowrap text-white input-btn" type="button" (click)="onClear()"> Clear
+                Data </button>
+        </form>
+        <div class="container mb-4">
+            <div class="d-flex p-4 bg-white rounded-3 justify-content-between align-items-center my-3"
+                *ngFor="let data of searchedLink">
+                <span class="text-secondary"> {{data.link}} </span>
+                <div class="d-flex align-items-center">
+                    <span class="text-primary"> {{data.shorten}} </span>
+                    <button class="btn btn-sm ms-4 px-3 text-white"
+                        [ngClass]="data.id === currentId ? 'bg-secondary': 'bg-primary'"
+                        (click)="onCopy(data.shorten, data.id)">
+                        {{ data.id === currentId ? 'Copied!' : 'Copy' }} </button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center text-center align-items-center flex-column">
+            <h1 class="py-3"> Advanced Statistics </h1>
+            <div class="sub-title" style="width: 500px;"> Track how your links are performing across the web with pur
+                advanced statistics dashboard </div>
+        </div>
+        <div class="container d-flex justify-content-center align-items-center py-5">
+            <div class="row py-5">
+                <div class="col-12 col-lg-4 px-3 py-4" *ngFor="let data of cardData">
+                    <div class="card pt-5 position-relative"
+                        [ngClass]="{'translate-50' : data.id == 2,'translate-100' : data.id == 3}">
+                        <figure
+                            class="position-absolute rounded-circle d-flex justify-content-center align-items-center">
+                            <img [src]="data.icon" alt="recognition">
+                        </figure>
+                        <div class="card-body">
+                            <h4> {{data.title}} </h4>
+                            <p class="card-text pt-4">{{data.details}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="starter-container d-flex justify-content-center flex-column align-items-center p-5">
+        <h2 class="text-white"> Boost your link today </h2>
+        <button class="btn btn-primary rounded-pill text-white mt-3"> Get Started </button>
+    </div>
+</div>

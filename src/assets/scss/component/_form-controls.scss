@@ -1,0 +1,13 @@
+.link-form{
+    background-image: url('../../images/bg-shorten-desktop.svg');
+    background-size: contain;
+    background-position: center;
+    background-color: #3a3152;
+    top: -70px;
+    width: 70%;
+
+    @media(max-width: 992px){
+        top: -140px;
+        width: 90%;
+    }
+}

@@ -1,1 +1,30 @@
-<p>footer works!</p>
+<div class="container d-flex justify-content-between flex-md-row flex-column py-5">
+    <h1 class="text-white"> Shortly </h1>
+    <div class="my-md-0 my-4 d-flex">
+
+        <ul class="list-group">
+            <li class="list-group-item text-white">Feature</li>
+            <li class="list-group-item">Link Shortening</li>
+            <li class="list-group-item">Branded Links</li>
+            <li class="list-group-item">Analysis</li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item text-white">Resoures</li>
+            <li class="list-group-item">Blog</li>
+            <li class="list-group-item">Developers</li>
+            <li class="list-group-item">Support</li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item text-white">Company</li>
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Our Team</li>
+            <li class="list-group-item">Careers</li>
+            <li class="list-group-item">Contact</li>
+        </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <figure class="fs-6 bg-transparent" role="button" *ngFor="let data of socialMedia">
+            <img [src]="data.class" [alt]="data.altName">
+        </figure>
+    </div>
+</div>

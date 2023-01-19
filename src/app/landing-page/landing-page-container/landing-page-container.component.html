@@ -1,1 +1,4 @@
-<p>landing-page-container works!</p>
+<app-landing-page-presentation
+    (emitFormData)="emitFormData($event)"
+    [urlData]="getUrl$ | async"
+></app-landing-page-presentation>
