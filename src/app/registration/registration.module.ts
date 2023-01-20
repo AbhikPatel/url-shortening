@@ -5,6 +5,7 @@ import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationContainerComponent } from './registration-container/registration-container.component';
 import { RegistrationPresentationComponent } from './registration-container/registration-presentation/registration-presentation.component';
 import { RegistrationService } from './registration.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { RegistrationService } from './registration.service';
   ],
   imports: [
     CommonModule,
-    RegistrationRoutingModule
+    RegistrationRoutingModule,
+    ReactiveFormsModule
   ],
   providers:[
     RegistrationService

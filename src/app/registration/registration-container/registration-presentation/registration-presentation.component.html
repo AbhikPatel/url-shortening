@@ -1,1 +1,62 @@
-<p>registration-presentation works!</p>
+<div class="registration-container h-100 d-flex align-items-center justify-content-center">
+    <div class="registration-form bg-white border border-1 p-3 p-lg-5 rounded-3 shadow overflow-auto">
+        <h2 class="text-center mb-3"> Welcome to </h2>
+        <figure class="d-flex justify-content-center mb-3">
+            <img src="../../../../assets/images/logo.svg" alt="logo">
+        </figure>
+        <form [formGroup]="registrationGroup" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <label for="name" class="form-label"> Name </label>
+                    <span class="text-danger"
+                        *ngIf="getControls['name']?.errors?.['required'] && getControls['name'].touched">This feild is
+                        required</span>
+                </div>
+                <input type="text" name="name" id="name" class="form-control border" formControlName="name"
+                    [ngClass]="{'border-danger' : getControls['name'].touched && getControls['name'].invalid}">
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <label for="mail" class="form-label"> Email </label>
+                    <span class="text-danger"
+                        *ngIf="getControls['mail']?.errors?.['required'] && getControls['mail'].touched">This feild is
+                        required</span>
+                </div>
+                <input type="email" name="mail" id="mail" class="form-control border" formControlName="mail"
+                    [ngClass]="{'border-danger' : getControls['mail'].touched && getControls['mail'].invalid}">
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <label for="userName" class="form-label"> Username </label>
+                    <span class="text-danger"
+                        *ngIf="getControls['userName']?.errors?.['required'] && getControls['userName'].touched">This
+                        feild is required</span>
+                </div>
+                <input type="text" name="userName" id="userName" class="form-control border" formControlName="userName"
+                    [ngClass]="{'border-danger' : getControls['userName'].touched && getControls['userName'].invalid}">
+            </div>
+            <div class="mb-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <label for="password" class="form-label"> Enter Password  <span class="text-muted"> (Max 8 Characters) </span> </label>
+                    <span class="text-danger"
+                        *ngIf="getControls['password']?.errors?.['required'] && getControls['password'].touched">This
+                        feild is required</span>
+                </div>
+                <input type="password" name="password" id="password" class="form-control border" formControlName="password"
+                    [ngClass]="{'border-danger' : getControls['password'].touched && getControls['password'].invalid}">
+            </div>
+            <div class="mb-5">
+                <div class="d-flex align-items-center justify-content-between">
+                    <label for="password2" class="form-label"> Re-enter New Password </label>
+                    <span class="text-danger"> password is not matching </span>
+                </div>
+                <input type="password" name="password2" id="password2" class="form-control border" formControlName="password2"
+                    [ngClass]="{'border-danger' : getControls['password2'].touched && getControls['password2'].invalid && matched}">
+            </div>
+            <div class="d-flex align-items-center justify-content-between">
+                <button class="btn btn-info text-white" type="reset"> Reset </button>
+                <button class="btn btn-primary text-white" type="submit"> Register </button>
+            </div>
+        </form>
+    </div>
+</div>
