@@ -21,7 +21,7 @@ section {
     padding: 10rem 0;
 }
 
-figure {
+.icon-container {
     background-color: #3a3154;
     width: 80px;
     height: 80px;
@@ -51,4 +51,21 @@ figure {
 .invalid-text{
     bottom: 15px;
     font-style: italic;
+}
+
+.password-icon{
+    top: 8px;
+    right: 10px;
+}
+
+.login-container{
+    width: 60%;
+
+    @media (max-width: 1440px){
+        width: 100%;
+    }
+}
+
+.login-img{
+    transform: translateX(200px);
 }

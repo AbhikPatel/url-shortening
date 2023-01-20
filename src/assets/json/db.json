@@ -1,0 +1,29 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"Abhishek",
+            "password":"password"
+        },
+        {
+            "id":2,
+            "name":"Mrunal",
+            "password":"password"
+        },
+        {
+            "id":3,
+            "name":"Tanmay",
+            "password":"password"
+        },
+        {
+            "id":4,
+            "name":"Mehul",
+            "password":"password"
+        },
+        {
+            "id":5,
+            "name":"Aman",
+            "password":"password"
+        }
+    ]
+}

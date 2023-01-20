@@ -9,21 +9,23 @@
         <img src="../../../../assets/images/illustration-working.svg" style="transform: translateX(300px);"
             alt="worker">
     </section>
-    <div class="statistic-container position-relative">
-        <form
-            class="link-form d-flex align-items-center flex-column flex-lg-row p-md-5 p-3 position-absolute rounded-3"
-            [formGroup]="linkGroup" (ngSubmit)="onSubmit()">
-            <input type="text" class="form-control w-100" name="shorten" id="shorten" formControlName="shorten"
-                placeholder="Shorten a link here..."
-                [ngClass]="{'border-danger border-3' : getControls['shorten'].invalid && getControls['shorten'].dirty}"
-                autocomplete="off">
-            <span class="text-danger invalid-text position-absolute"
-                *ngIf="getControls['shorten']?.errors?.['required'] && getControls['shorten'].touched"> Please add a
-                Link </span>
-            <button class="btn btn-primary text-nowrap text-white input-btn m-3" type="submit"> Shorten It! </button>
-            <button class="btn btn-danger text-nowrap text-white input-btn" type="button" (click)="onClear()"> Clear
-                Data </button>
-        </form>
+    <div class="statistic-container">
+        <div class="d-flex justify-content-center">
+            <form class="link-form d-flex align-items-center flex-column flex-lg-row p-md-5 p-3 rounded-3"
+                [formGroup]="linkGroup" (ngSubmit)="onSubmit()">
+                <input type="text" class="form-control w-100" name="shorten" id="shorten" formControlName="shorten"
+                    placeholder="Shorten a link here..."
+                    [ngClass]="{'border-danger border-3' : getControls['shorten'].invalid && getControls['shorten'].dirty}"
+                    autocomplete="off">
+                <span class="text-danger invalid-text position-absolute"
+                    *ngIf="getControls['shorten']?.errors?.['required'] && getControls['shorten'].touched"> Please add a
+                    Link </span>
+                <button class="btn btn-primary text-nowrap text-white input-btn m-3" type="submit"> Shorten It!
+                </button>
+                <button class="btn btn-danger text-nowrap text-white input-btn" type="button" (click)="onClear()"> Clear
+                    Data </button>
+            </form>
+        </div>
         <div class="container mb-4">
             <div class="d-flex p-4 bg-white rounded-3 justify-content-between align-items-center my-3"
                 *ngFor="let data of searchedLink">
@@ -48,7 +50,7 @@
                     <div class="card pt-5 position-relative"
                         [ngClass]="{'translate-50' : data.id == 2,'translate-100' : data.id == 3}">
                         <figure
-                            class="position-absolute rounded-circle d-flex justify-content-center align-items-center">
+                            class="icon-container position-absolute rounded-circle d-flex justify-content-center align-items-center">
                             <img [src]="data.icon" alt="recognition">
                         </figure>
                         <div class="card-body">

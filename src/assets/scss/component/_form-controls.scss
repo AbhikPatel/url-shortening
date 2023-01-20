@@ -3,11 +3,10 @@
     background-size: contain;
     background-position: center;
     background-color: #3a3152;
-    top: -70px;
     width: 70%;
+    transform: translateY(-190px);
 
     @media(max-width: 992px){
-        top: -140px;
         width: 90%;
     }
 }

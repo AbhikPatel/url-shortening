@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './core/components/login/login.component';
 import { MasterComponent } from './core/components/master/master.component';
+import { LoginGuard } from './core/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -9,8 +10,13 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
+    path:'registration',
+    loadChildren: () => import(`./registration/registration.module`).then(m => m.RegistrationModule)
+  },
+  {
     path:'home',
     component:MasterComponent,
+    canActivate:[LoginGuard],
     children:[
       {
         path:'',
@@ -20,7 +26,7 @@ const routes: Routes = [
   },
   {
     path:'',
-    redirectTo:'home',
+    redirectTo:'login',
     pathMatch:'full'
   }
 ];

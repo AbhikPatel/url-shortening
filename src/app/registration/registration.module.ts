@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RegistrationRoutingModule } from './registration-routing.module';
 import { RegistrationContainerComponent } from './registration-container/registration-container.component';
 import { RegistrationPresentationComponent } from './registration-container/registration-presentation/registration-presentation.component';
+import { RegistrationService } from './registration.service';
 
 
 @NgModule({
@@ -14,6 +15,9 @@ import { RegistrationPresentationComponent } from './registration-container/regi
   imports: [
     CommonModule,
     RegistrationRoutingModule
+  ],
+  providers:[
+    RegistrationService
   ]
 })
 export class RegistrationModule { }
